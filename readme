@@ -1,1 +1,2 @@
-make && ./prog1
+                neighbors, particles, iterations, delta_max
+make && ./prog1 10 100 1000 10

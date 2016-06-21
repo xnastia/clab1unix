@@ -22,34 +22,36 @@ float dist(float x1, float x2, float y1, float y2){
   return sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 }
 
-int main(void)
+int main(int argc, char **argv) 
 /* 0 */{int i,j,k,n;
 long N; long It;
 float R,dt,d,delta_max,delta,delta0,Tcalc;
-
-//	   printf("\nPlease, input the average number of neighbors \n");
-//	   printf("n = ");
-//	   scanf("%i", &n);
+    if (argc<5){
+ 	    printf("\nPlease, input the average number of neighbors \n");
+ 	    printf("n = ");
+	    scanf("%i", &n);
  
-//	   printf("\n Please, input the number of particles N\n");
-//       printf("N = ");
-//       scanf("%li", &N);
+	    printf("\n Please, input the number of particles N\n");
+      printf("N = ");
+      scanf("%li", &N);
 
-//	   printf("\n Please, input the number of iterations It\n");
-//       printf("It = ");
-//       scanf("%li", &It);
+	    printf("\n Please, input the number of iterations It\n");
+      printf("It = ");
+      scanf("%li", &It);
 
-/*	   printf("\n Only every m-th step will be recorded\n");
-       printf("m = ");
-       scanf("%i", &m);*/
+	    printf("\nPlease, input the noise amplitude delta_max (in degrees)\n");
+      printf("delta_max = ");
+      scanf("%f", &delta_max);
+    }
+    else
+    	{
+			 n = atoi(argv[1]);
+			 N = atol(argv[2]);
+			 It = atoi(argv[3]);
+			 delta_max = atoi(argv[4]);
+    	}
+       
 
-//	   printf("\nPlease, input the noise amplitude delta_max (in degrees)\n");
-//       printf("delta_max = ");
-//       scanf("%f", &delta_max);
- n = 100;
- N = 10000;
- It = 1000;
- delta_max = 10;
 	   delta0 = delta_max/180.*3.14159;
 	   R =pow(n/(N*3.14159),0.5);
 	   dt = 2./It;
